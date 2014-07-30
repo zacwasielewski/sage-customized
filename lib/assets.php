@@ -61,7 +61,7 @@ function roots_scripts() {
 
   wp_enqueue_script('modernizr', roots_asset_path('vendor/modernizr/modernizr.js'), array(), roots_manifest('vendor/modernizr/modernizr.js'), false);
   wp_enqueue_script('jquery');
-  wp_enqueue_script('roots_js', roots_asset_path('js/scripts.min.js'), array(), roots_manifest('js/scripts.min.js'), true);
+  wp_enqueue_script('roots_js', roots_asset_path('js/scripts.js'), array(), roots_manifest('js/scripts.js'), true);
 }
 add_action('wp_enqueue_scripts', 'roots_scripts', 100);
 
