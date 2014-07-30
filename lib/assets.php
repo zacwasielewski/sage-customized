@@ -23,9 +23,7 @@ function roots_load_manifest() {
 function roots_manifest($path) {
   global $manifest;
 
-  if (WP_ENV == 'development') {
-    return $path;
-  } else {
+  if (WP_ENV != 'development') {
     $manifest = isset($manifest) ? $manifest : roots_load_manifest();
     return $manifest[$path];
   }
