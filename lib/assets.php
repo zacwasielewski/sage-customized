@@ -25,7 +25,7 @@ function roots_manifest($path) {
 
   if (WP_ENV != 'development') {
     $manifest = isset($manifest) ? $manifest : roots_load_manifest();
-    return $manifest[$path];
+    return $manifest["assets/$path"]['hash'];
   }
 }
 

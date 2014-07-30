@@ -52,7 +52,7 @@ module.exports = function(grunt) {
       },
       build: {
         files: {
-          'assets/css/main.min.css': [
+          'assets/css/main.css': [
             'assets/less/main.less'
           ]
         },
@@ -73,7 +73,7 @@ module.exports = function(grunt) {
     uglify: {
       dist: {
         files: {
-          'assets/js/scripts.min.js': [jsFileList]
+          'assets/js/scripts.js': [jsFileList]
         }
       }
     },
@@ -90,17 +90,17 @@ module.exports = function(grunt) {
         src: 'assets/css/main.css'
       },
       build: {
-        src: 'assets/css/main.min.css'
+        src: 'assets/css/main.css'
       }
     },
     modernizr: {
       build: {
         devFile: 'assets/vendor/modernizr/modernizr.js',
-        outputFile: 'assets/js/vendor/modernizr.min.js',
+        outputFile: 'assets/js/vendor/modernizr.js',
         files: {
           'src': [
-            ['assets/js/scripts.min.js'],
-            ['assets/css/main.min.css']
+            ['assets/js/scripts.js'],
+            ['assets/css/main.css']
           ]
         },
         uglify: true,
@@ -119,7 +119,7 @@ module.exports = function(grunt) {
           }
         },
         files: {
-          'lib/scripts.php': 'assets/{css,js}/{main,scripts}.min.{css,js}'
+          'lib/assets.php': 'assets/{css,js}/{main,scripts}.{css,js}'
         }
       }
     },
