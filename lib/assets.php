@@ -36,7 +36,7 @@ function roots_asset_path($path) {
 }
 
 function roots_scripts() {
-  wp_enqueue_style('roots_css', $roots_asset_path('css/main.css'), array(), $roots_manifest('css/main.css'));
+  wp_enqueue_style('roots_css', roots_asset_path('css/main.css'), array(), roots_manifest('css/main.css'));
 
   /**
    * jQuery is loaded using the same method from HTML5 Boilerplate:
@@ -59,9 +59,9 @@ function roots_scripts() {
     wp_enqueue_script('comment-reply');
   }
 
-  wp_enqueue_script('modernizr', $roots_asset_path('vendor/modernizr/modernizr.js'), array(), $roots_manifest('vendor/modernizr/modernizr.js'), false);
+  wp_enqueue_script('modernizr', roots_asset_path('vendor/modernizr/modernizr.js'), array(), roots_manifest('vendor/modernizr/modernizr.js'), false);
   wp_enqueue_script('jquery');
-  wp_enqueue_script('roots_js', $roots_asset_path('js/scripts.min.js'), array(), $roots_manifest('js/scripts.min.js'), true);
+  wp_enqueue_script('roots_js', roots_asset_path('js/scripts.min.js'), array(), roots_manifest('js/scripts.min.js'), true);
 }
 add_action('wp_enqueue_scripts', 'roots_scripts', 100);
 
@@ -71,9 +71,9 @@ function roots_jquery_local_fallback($src, $handle = null) {
 
   if ($add_jquery_fallback) {
     if (WP_ENV == 'development') {
-      $jquery = $roots_asset_path('vendor/jquery/dist/jquery.js?1.11.1');
+      $jquery = roots_asset_path('vendor/jquery/dist/jquery.js?1.11.1');
     } else {
-      $jquery = $roots_asset_path('vendor/jquery/dist/jquery.min.js?1.11.1');
+      $jquery = roots_asset_path('vendor/jquery/dist/jquery.min.js?1.11.1');
     }
 
     echo '<script>window.jQuery || document.write(\'<script src="' . $jquery . '"><\/script>\')</script>' . "\n";
