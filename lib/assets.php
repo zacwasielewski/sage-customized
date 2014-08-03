@@ -35,7 +35,7 @@ function roots_asset_path($path) {
   if (WP_ENV === 'development') {
     return get_template_directory_uri() . '/assets/' . $path;
   } else {
-    return get_template_directory_uri() . roots_manifest($path, 'path');
+    return get_template_directory_uri() . '/'. roots_manifest($path, 'path');
   }
 }
 
