@@ -33,9 +33,9 @@ function roots_manifest($path, $attr) {
 
 function roots_asset_path($path) {
   if (WP_ENV === 'development') {
-    return get_template_directory() . roots_manifest($path, 'path');
-  } else {
     return get_template_directory() . '/assets/' . $path;
+  } else {
+    return get_template_directory() . roots_manifest($path, 'path');
   }
 }
 
