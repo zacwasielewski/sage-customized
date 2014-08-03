@@ -27,7 +27,6 @@ module.exports = function(grunt) {
       dev: {},
       prod: {}
     },
-
     jshint: {
       options: {
         jshintrc: '.jshintrc'
@@ -57,7 +56,7 @@ module.exports = function(grunt) {
       },
       build: {
         files: {
-          'assets/css/main.css': [
+          'assets/css/main.min.css': [
             'assets/less/main.less'
           ]
         },
@@ -78,7 +77,7 @@ module.exports = function(grunt) {
     uglify: {
       dist: {
         files: {
-          'assets/js/scripts.js': [jsFileList]
+          'assets/js/scripts.min.js': [jsFileList]
         }
       }
     },
@@ -95,17 +94,17 @@ module.exports = function(grunt) {
         src: 'assets/css/main.css'
       },
       build: {
-        src: 'assets/css/main.css'
+        src: 'assets/css/main.min.css'
       }
     },
     modernizr: {
       build: {
         devFile: 'assets/vendor/modernizr/modernizr.js',
-        outputFile: 'assets/js/vendor/modernizr.js',
+        outputFile: 'assets/js/vendor/modernizr.min.js',
         files: {
           'src': [
-            ['assets/js/scripts.js'],
-            ['assets/css/main.css']
+            ['assets/js/scripts.min.js'],
+            ['assets/css/main.min.css']
           ]
         },
         uglify: true,
@@ -124,7 +123,7 @@ module.exports = function(grunt) {
           }
         },
         files: {
-          'lib/assets.php': 'assets/{css,js}/{main,scripts}.{css,js}'
+          'lib/scripts.php': 'assets/{css,js}/{main,scripts}.min.{css,js}'
         }
       }
     },
