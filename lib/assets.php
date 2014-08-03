@@ -16,6 +16,7 @@
  */
 
 $jquery_version = JQUERY_VERSION;
+$manifest = null;
 
 function roots_load_manifest() {
   $manifest = file_get_contents(get_template_directory() . '/assets/manifest.json');
@@ -26,7 +27,7 @@ function roots_manifest($path, $attr) {
   global $manifest;
 
   if (WP_ENV !== 'development') {
-    $manifest = isset($manifest) ? $manifest : roots_load_manifest();
+    $manifest = !empty($manifest) ? $manifest : roots_load_manifest();
     return $manifest["assets/$path"][$attr];
   }
 }
