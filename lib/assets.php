@@ -54,6 +54,7 @@ function roots_enqueue_style($handle, $src, $deps = array(), $media = 'all') {
 }
 
 function roots_scripts() {
+  global $jquery_version;
   roots_enqueue_style('roots_css', 'css/main.css');
 
   /**
@@ -85,6 +86,7 @@ add_action('wp_enqueue_scripts', 'roots_scripts', 100);
 
 // http://wordpress.stackexchange.com/a/12450
 function roots_jquery_local_fallback($src, $handle = null) {
+  global $jquery_version;
   static $add_jquery_fallback = false;
 
   if ($add_jquery_fallback) {
