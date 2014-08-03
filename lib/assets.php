@@ -15,7 +15,7 @@
  * - You're not logged in as an administrator
  */
 
-$jquery_version = '1.11.1';
+$jquery_version = JQUERY_VERSION;
 
 function roots_load_manifest() {
   $manifest = file_get_contents(get_template_directory() . '/assets/manifest.json');
