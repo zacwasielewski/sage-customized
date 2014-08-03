@@ -22,29 +22,33 @@ function roots_load_manifest() {
   return json_decode($manifest, true);
 }
 
-function roots_manifest($path) {
+function roots_manifest($path, $attr) {
   global $manifest;
 
   if (WP_ENV !== 'development') {
     $manifest = isset($manifest) ? $manifest : roots_load_manifest();
-    return $manifest["assets/$path"]['hash'];
+    return $manifest["assets/$path"][$attr];
   }
 }
 
 function roots_asset_path($path) {
-  return get_template_directory_uri() . '/assets/' . $path;
+  if (WP_ENV === 'development') {
+    return get_template_directory() . roots_manifest($path, 'path');
+  } else {
+    return get_template_directory() . '/assets/' . $path;
+  }
 }
 
 function roots_enqueue_script($handle, $src, $deps = array(), $in_footer = false) {
   $src = roots_asset_path($src);
-  $ver = roots_manifest($src);
+  $ver = roots_manifest($src, 'hash');
 
   wp_enqueue_script($handle, $src, $deps, $ver, $in_footer);
 }
 
 function roots_enqueue_style($handle, $src, $deps = array(), $media = 'all') {
   $src = roots_asset_path($src);
-  $ver = roots_manifest($src);
+  $ver = roots_manifest($src, 'hash');
 
   wp_enqueue_style($handle, $src, $deps, $ver, $media);
 }
