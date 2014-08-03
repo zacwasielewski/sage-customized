@@ -5,6 +5,24 @@ module.exports = function(grunt) {
   // Show elapsed time
   require('time-grunt')(grunt);
 
+  grunt.registerTask('bower', 'Install Bower packages.', function() {
+    var bower = require('bower');
+    var done = this.async();
+
+    bower.commands.install(undefined, undefined, { cwd: process.cwd() })
+      .on('log', function(result) {
+        grunt.verbose.writeln('Bower: Installing ' + result.message);
+      })
+      .on('error', function(error) {
+        grunt.log.error('Bower: ' + error.message);
+        done(false);
+      })
+      .on('end', function(installed) {
+        grunt.log.ok('Bower: packages installed to ' + bower.config.directory);
+        done();
+     });
+  });
+
   var jsFileList = [
     'assets/vendor/bootstrap/js/transition.js',
     'assets/vendor/bootstrap/js/alert.js',
@@ -159,6 +177,7 @@ module.exports = function(grunt) {
     'dev'
   ]);
   grunt.registerTask('dev', [
+    'bower',
     'jshint',
     'less:dev',
     'autoprefixer:dev',
