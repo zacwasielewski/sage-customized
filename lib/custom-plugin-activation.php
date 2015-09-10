@@ -59,6 +59,31 @@ function register_required_plugins() {
 		//	'slug'      => 'buddypress',
 		//	'required'  => false,
 		//),
+    array(
+			'name'      => 'Advanced Custom Fields',
+			'slug'      => 'advanced-custom-fields',
+			'required'  => false,
+		),
+    array(
+			'name'      => 'Hierarchy',
+			'slug'      => 'hierarchy',
+			'required'  => false,
+		),
+    array(
+			'name'      => 'Types',
+			'slug'      => 'types',
+			'required'  => false,
+		),
+    array(
+			'name'      => 'W3 Total Cache',
+			'slug'      => 'w3-total-cache',
+			'required'  => false,
+		),
+    array(
+			'name'      => 'Typekit Fonts for WordPress',
+			'slug'      => 'typekit-fonts-for-wordpress',
+			'required'  => false,
+		),
 		// This is an example of the use of 'is_callable' functionality. A user could - for instance -
 		// have WPSEO installed *or* WPSEO Premium. The slug would in that last case be different, i.e.
 		// 'wordpress-seo-premium'.
