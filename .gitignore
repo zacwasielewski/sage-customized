@@ -5,3 +5,4 @@ bower_components
 node_modules
 vendor
 npm-debug.log
+.DS_Store
